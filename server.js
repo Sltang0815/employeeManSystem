@@ -1,5 +1,8 @@
-var mysql = require("mysql");
-var connection = mysql.createConnection({
+const mysql = require("mysql");
+const inquirer = require("inquirer");
+
+
+let connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -14,11 +17,11 @@ connection.connect(function (err) {
 });
 
 function departments() {
-    connection.query("SELECT name FROM departments", function (err, res) {
+    connection.query("SELECT FROM employeeTracker_db", function (err, res) {
         if (err) throw err;
 
         // Log all results of the SELECT statement
         console.log(res);
-        connection.end();
+
     });
 }
